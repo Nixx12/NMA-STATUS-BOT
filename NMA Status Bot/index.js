@@ -28,11 +28,10 @@ client.on('messageCreate', async message => {
 });
 
 function setBotStatus(playerCount, serverCapacity, mapName) {
-    // Format status message
     const statusMessage = `${playerCount}/${serverCapacity} | ${mapName}`;
     
     try {
-        client.user.setActivity(statusMessage, { type: ActivityType.Watching });
+        client.user.setActivity(statusMessage);
         console.log(`Bot status set to: ${statusMessage}`)
     } catch(error) {
         console.log(`Error settings bot status, ${error}`)
