@@ -6,15 +6,17 @@ dotenv.config();
 
 const BOT_TOKEN = process.env.BOT_TOKEN;
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+var date = new Date().toLocaleString();
 
 let updateStatusTimer;
 
 function setBotStatus(playerCount, serverCapacity, mapName, gamemode) {
-    const statusMessage = `${playerCount}/${serverCapacity} | ${mapName} | ${gamemode}`;
+    const statusMessage = `${playerCount}/${serverCapacity} | ${mapName} | ${gamemode}\nDeveloped By Nixx`;
     
     try {
-        client.user.setActivity(statusMessage);
+        client.user.setActivity(`${statusMessage}`);
         console.log(`Bot status set to: ${statusMessage}`)
+        console.log(date)
     } catch(error) {
         console.log(`Error settings bot status, ${error}`)
         setTimeout(() => {
